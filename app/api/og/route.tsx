@@ -3,17 +3,17 @@ import { NextRequest } from 'next/server';
 
 export const runtime = 'edge';
 
-const interRegular = fetch(new URL('./Inter-Regular.ttf', import.meta.url)).then((res) =>
-  res.arrayBuffer()
-);
+// const interRegular = fetch(new URL('./Inter-Regular.ttf', import.meta.url)).then((res) =>
+//   res.arrayBuffer()
+// );
 
-const interBold = fetch(new URL('./Inter-Bold.ttf', import.meta.url)).then((res) =>
-  res.arrayBuffer()
-);
+// const interBold = fetch(new URL('./Inter-Bold.ttf', import.meta.url)).then((res) =>
+//   res.arrayBuffer()
+// );
 
 export async function GET(req: NextRequest): Promise<Response | ImageResponse> {
   try {
-    const [regularFont, boldFont] = await Promise.all([interRegular, interBold]);
+    // const [regularFont, boldFont] = await Promise.all([interRegular, interBold]);
 
     const { searchParams } = new URL(req.url);
 
@@ -40,20 +40,20 @@ export async function GET(req: NextRequest): Promise<Response | ImageResponse> {
       {
         width: 1200,
         height: 630,
-        fonts: [
-          {
-            name: 'Inter',
-            data: regularFont,
-            style: 'normal',
-            weight: 400
-          },
-          {
-            name: 'Inter',
-            data: boldFont,
-            style: 'normal',
-            weight: 700
-          }
-        ]
+        // fonts: [
+        //   {
+        //     name: 'Inter',
+        //     data: regularFont,
+        //     style: 'normal',
+        //     weight: 400
+        //   },
+        //   {
+        //     name: 'Inter',
+        //     data: boldFont,
+        //     style: 'normal',
+        //     weight: 700
+        //   }
+        // ]
       }
     );
   } catch (e) {
